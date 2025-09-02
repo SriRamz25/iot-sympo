@@ -159,7 +159,7 @@ const EventCarousel = () => {
 
   return (
     <div className="relative w-full max-w-7xl mx-auto">
-      <div className="flex items-center justify-center min-h-[600px]">
+      <div className="flex items-center justify-center min-h-screen px-4">
         <button
           onClick={prevSlide}
           className="absolute left-4 z-20 p-3 rounded-full bg-card/80 backdrop-blur-lg border border-border/50 hover:bg-primary/20 transition-all duration-300 shadow-glow"
@@ -167,13 +167,13 @@ const EventCarousel = () => {
           <ChevronLeft className="w-6 h-6" />
         </button>
 
-        <div className="overflow-hidden w-full">
+        <div className="overflow-hidden w-full px-8">
           <div
             className="carousel-container"
             style={{
               transform: `translateX(calc(-${
-                currentIndex * 420
-              }px + 50% - 200px))`,
+                currentIndex * 470
+              }px + 50% - 235px))`,
             }}
           >
             {events.map((event, index) => (
@@ -209,7 +209,7 @@ const EventCarousel = () => {
                   </p>
 
                   <button
-                    className="mt-auto btn-secondary w-full hover:scale-105 transition-all duration-300 btn-pulse py-3"
+                    className="mt-auto btn-secondary w-full hover:scale-105 transition-all duration-300 py-3"
                     onClick={() => openModal(event)}
                   >
                     Register Now

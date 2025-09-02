@@ -58,15 +58,15 @@ const Index = () => {
         {/* Cosmic Glow Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
 
-        <div className="relative z-10 container mx-auto px-6 py-20">
+        <div className="relative z-10 container mx-auto px-6 pt-28 pb-20">
           {/* Hero Content Container */}
           <div className="max-w-6xl mx-auto text-center">
             {/* Main Title Section */}
-            <div className="mb-12 font-heading flex flex-col items-center gap-4">
+            <div className="mb-16 font-heading flex flex-col items-center gap-6">
               <div className="relative animate-in slide-in-from-top-10 duration-700">
                 <div className="px-8 py-3 bg-white text-red-700 inline-block shadow-hero">
                   <span
-                    className="text-6xl md:text-7xl xl:text-8xl leading-none"
+                    className="text-7xl md:text-8xl xl:text-9xl leading-none"
                     style={{ fontWeight: 900, letterSpacing: "2px" }}
                   >
                     IOTRIX
@@ -74,14 +74,14 @@ const Index = () => {
                 </div>
                 <div className="absolute -inset-2 bg-gradient-to-r from-red-500/20 via-white/0 to-red-500/20 blur-2xl -z-10 rounded"></div>
               </div>
-              <h2 className="font-heading text-4xl md:text-5xl xl:text-6xl font-extrabold text-white tracking-wider leading-tight animate-in fade-in-0 duration-1000 delay-150">
+              <h2 className="font-heading text-5xl md:text-6xl xl:text-7xl font-extrabold text-white tracking-wider leading-tight animate-in fade-in-0 duration-1000 delay-150">
                 IOTRIX SYMPOSIUM 2025
               </h2>
             </div>
 
             {/* Description */}
             <div className="mb-16 animate-in fade-in-0 duration-1000 delay-400">
-              <p className="text-xl md:text-2xl xl:text-3xl text-gray-200 max-w-5xl mx-auto leading-relaxed font-light">
+              <p className="text-2xl md:text-3xl xl:text-4xl text-gray-200 max-w-6xl mx-auto leading-relaxed font-light">
                 Assemble with the greatest minds in technology and innovation.
                 <br className="hidden md:block" />
                 Join us for an epic journey of learning, networking, and heroic
@@ -93,7 +93,7 @@ const Index = () => {
             <div className="mb-16 animate-in zoom-in-95 duration-1000 delay-600">
               <div className="flex items-center justify-center mb-8">
                 <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-32"></div>
-                <h3 className="text-2xl md:text-3xl xl:text-4xl font-bold text-white mx-8 whitespace-nowrap font-heading">
+                <h3 className="text-3xl md:text-4xl xl:text-5xl font-bold text-white mx-8 whitespace-nowrap font-heading">
                   Event Starts In
                 </h3>
                 <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-32"></div>
@@ -107,7 +107,7 @@ const Index = () => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-in slide-in-from-bottom-6 duration-1000 delay-800">
               <button
-                className="group relative overflow-hidden bg-gradient-to-r from-primary via-red-600 to-primary hover:from-red-600 hover:via-primary hover:to-red-600 text-white font-bold py-5 px-10 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 flex items-center gap-4 min-w-[250px] text-lg"
+                className="group relative overflow-hidden bg-gradient-to-r from-primary via-red-600 to-primary hover:from-red-600 hover:via-primary hover:to-red-600 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 flex items-center gap-4 min-w-[280px] text-xl"
                 onClick={handleDownloadBrochure}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
@@ -116,7 +116,7 @@ const Index = () => {
               </button>
 
               <button
-                className="group relative overflow-hidden bg-gradient-to-r from-secondary via-blue-600 to-secondary hover:from-blue-600 hover:via-secondary hover:to-blue-600 text-white font-bold py-5 px-10 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/30 flex items-center gap-4 min-w-[250px] text-lg"
+                className="group relative overflow-hidden bg-gradient-to-r from-secondary via-blue-600 to-secondary hover:from-blue-600 hover:via-secondary hover:to-blue-600 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/30 flex items-center gap-4 min-w-[280px] text-xl"
                 onClick={() => navigate("/events")}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
@@ -138,7 +138,7 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-20 animate-in fade-in-0 slide-in-from-bottom-6 duration-1000">
-            <h2 className="text-5xl md:text-6xl xl:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-heading">
+            <h2 className="text-6xl md:text-7xl xl:text-8xl font-bold mb-8 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-heading">
               Event Highlights
             </h2>
             <div className="flex items-center justify-center mb-4">
@@ -146,7 +146,7 @@ const Index = () => {
               <div className="w-3 h-3 bg-primary rounded-full mx-4"></div>
               <div className="h-px bg-gradient-to-r from-transparent via-secondary to-transparent w-24"></div>
             </div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-2xl text-muted-foreground max-w-4xl mx-auto">
               Where Things Talk, and Ideas Spark.
             </p>
           </div>
@@ -166,10 +166,10 @@ const Index = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-3xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-500 font-heading">
+                <h3 className="text-4xl font-bold mb-6 text-foreground group-hover:text-primary transition-colors duration-500 font-heading">
                   1 Day Event
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <p className="text-muted-foreground text-xl leading-relaxed">
                   September 17, 2025
                 </p>
                 <div className="mt-6 text-sm text-muted-foreground/80">
@@ -188,10 +188,10 @@ const Index = () => {
                   <MapPin className="w-10 h-10 text-secondary group-hover:animate-pulse" />
                 </div>
 
-                <h3 className="text-3xl font-bold mb-4 text-foreground group-hover:text-secondary transition-colors duration-500 font-heading">
+                <h3 className="text-4xl font-bold mb-6 text-foreground group-hover:text-secondary transition-colors duration-500 font-heading">
                   College Campus
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <p className="text-muted-foreground text-xl leading-relaxed">
                   Main Auditorium & Tech Labs
                 </p>
                 <div className="mt-6 text-sm text-muted-foreground/80">
@@ -211,10 +211,10 @@ const Index = () => {
                   <Users className="w-10 h-10 text-accent group-hover:animate-pulse" />
                 </div>
 
-                <h3 className="text-3xl font-bold mb-4 text-foreground group-hover:text-accent transition-colors duration-500 font-heading">
-                  500+ Participants
+                <h3 className="text-4xl font-bold mb-6 text-foreground group-hover:text-accent transition-colors duration-500 font-heading">
+                  5+Events
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <p className="text-muted-foreground text-xl leading-relaxed">
                   Students, Faculty & Industry Experts
                 </p>
                 <div className="mt-6 text-sm text-muted-foreground/80">

@@ -56,7 +56,8 @@ const RegistrationModal = ({ event, isOpen, onClose }: RegistrationModalProps) =
   if (!isOpen || !event) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 overflow-y-auto">
+      <div className="min-h-screen flex items-center justify-center">
       {/* Backdrop with cosmic animation */}
       <div 
         className={cn(
@@ -212,6 +213,7 @@ const RegistrationModal = ({ event, isOpen, onClose }: RegistrationModalProps) =
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

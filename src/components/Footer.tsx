@@ -117,7 +117,6 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} IOTRIX Symposium. All Rights
             Reserved.
           </p>
-          <p className="mt-2">Designed by IOT Bois</p>
         </div>
       </div>
     </footer>

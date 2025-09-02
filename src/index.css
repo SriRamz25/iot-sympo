@@ -130,7 +130,7 @@
   }
   
   .carousel-card {
-    @apply min-w-[400px] transition-all duration-500;
+    @apply min-w-[450px] transition-all duration-500;
   }
   
   .carousel-card.center {
