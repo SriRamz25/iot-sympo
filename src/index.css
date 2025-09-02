@@ -2,41 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Marvel Symposium Design System - Rich superhero aesthetics */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Marvel Dark Theme */
+    --background: 220 20% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 25% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Marvel Red Primary */
+    --primary: 0 85% 60%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Marvel Blue Secondary */
+    --secondary: 220 70% 50%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Marvel Gold Accent */
+    --accent: 45 90% 60%;
+    --accent-foreground: 220 20% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 15% 20%;
+    --input: 220 15% 15%;
+    --ring: 0 85% 60%;
 
-    --radius: 0.5rem;
+    /* Marvel Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 85% 60%), hsl(15 85% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 70% 50%), hsl(240 70% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 6%), hsl(220 25% 12%));
+    --gradient-cosmic: linear-gradient(45deg, hsl(250 80% 30%), hsl(300 70% 40%), hsl(220 70% 50%));
+    
+    /* Marvel Shadows & Effects */
+    --shadow-hero: 0 20px 60px -10px hsl(0 85% 60% / 0.4);
+    --shadow-cosmic: 0 10px 40px hsl(240 70% 50% / 0.3);
+    --shadow-glow: 0 0 30px hsl(0 85% 60% / 0.5);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +118,85 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-red-600 text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg;
+    @apply hover:scale-105 hover:shadow-[var(--shadow-hero)] transition-all duration-300;
+    @apply border-2 border-primary/20 backdrop-blur-sm;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary to-blue-600 text-secondary-foreground px-6 py-3 rounded-lg font-semibold;
+    @apply hover:scale-105 hover:shadow-[var(--shadow-cosmic)] transition-all duration-300;
+    @apply border border-secondary/30;
+  }
+
+  /* Event Card Styles */
+  .event-card {
+    @apply relative bg-card/80 backdrop-blur-lg rounded-2xl border border-border/50;
+    @apply transform transition-all duration-500 cursor-pointer overflow-hidden;
+    @apply hover:scale-105 hover:shadow-[var(--shadow-cosmic)] hover:border-primary/50;
+  }
+  
+  .event-card-hero {
+    @apply transition-transform duration-700 ease-out;
+  }
+  
+  .event-card:hover .event-card-hero {
+    @apply scale-110 -translate-y-4;
+  }
+
+  /* Netflix-style Carousel */
+  .carousel-container {
+    @apply flex gap-6 transition-transform duration-700 ease-out;
+  }
+  
+  .carousel-card {
+    @apply min-w-[400px] transition-all duration-500;
+  }
+  
+  .carousel-card.center {
+    @apply scale-110 z-10;
+  }
+  
+  .carousel-card.side {
+    @apply scale-90 blur-sm opacity-70;
+  }
+
+  /* Countdown Timer */
+  .countdown-item {
+    @apply bg-card/60 backdrop-blur-lg rounded-xl p-6 border border-border/30;
+    @apply text-center transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .countdown-number {
+    @apply text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .countdown-label {
+    @apply text-muted-foreground text-sm uppercase tracking-wider font-semibold;
+  }
+
+  /* Page Animations */
+  .page-enter {
+    @apply animate-in fade-in-0 slide-in-from-bottom-6 duration-700;
+  }
+  
+  .marvel-glow {
+    @apply relative;
+  }
+  
+  .marvel-glow::before {
+    @apply content-[''] absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-inherit blur-xl opacity-0 transition-opacity duration-500;
+  }
+  
+  .marvel-glow:hover::before {
+    @apply opacity-100;
   }
 }
