@@ -192,11 +192,18 @@
     @apply relative;
   }
   
-  .marvel-glow::before {
-    @apply content-[''] absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-inherit blur-xl opacity-0 transition-opacity duration-500;
+.marvel-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: linear-gradient(to right, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2));
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
   
   .marvel-glow:hover::before {
-    @apply opacity-100;
+    opacity: 1;
   }
 }
