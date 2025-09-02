@@ -27,7 +27,7 @@ const Events = () => {
               secure your spot among the heroes of tomorrow.
             </p>
             <button className="btn-hero">
-              Register for All Events
+              Download Brochure Now
             </button>
           </div>
         </div>

@@ -187,4 +187,150 @@
   .bg-gradient-primary {
     background: var(--gradient-primary);
   }
+
+  /* Modal Animations */
+  .modal-enter {
+    @apply animate-in fade-in-0 zoom-in-95 duration-300;
+  }
+  
+  .modal-exit {
+    @apply animate-out fade-out-0 zoom-out-95 duration-200;
+  }
+
+  /* Enhanced Button Animations */
+  .bg-size-200 {
+    background-size: 200% 100%;
+  }
+  
+  .bg-pos-0 {
+    background-position: 0% 50%;
+  }
+  
+  .bg-pos-100 {
+    background-position: 100% 50%;
+  }
+
+  /* Pulse Animation for particles */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Shimmer effect for buttons */
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(200%) skewX(-15deg); }
+  }
+  
+  .shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  /* Cosmic glow effect */
+  @keyframes cosmic-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--secondary) / 0.2);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--secondary) / 0.4);
+    }
+  }
+  
+  .animate-cosmic-glow {
+    animation: cosmic-glow 3s ease-in-out infinite;
+  }
+
+  /* Enhanced Title Animations */
+  @keyframes title-glow {
+    0%, 100% {
+      text-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--accent) / 0.3);
+    }
+    50% {
+      text-shadow: 0 0 30px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--accent) / 0.5);
+    }
+  }
+
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Card Hover Enhancements */
+  .info-card {
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .info-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(45deg, transparent, hsl(var(--primary) / 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .info-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Button Pulse Effect */
+  @keyframes button-pulse {
+    0% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px hsl(var(--primary) / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+    }
+  }
+
+  .btn-pulse {
+    animation: button-pulse 2s infinite;
+  }
+
+  /* Particle Effects */
+  @keyframes particle-drift {
+    0% {
+      transform: translateY(0) translateX(0) scale(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(50px) scale(0);
+      opacity: 0;
+    }
+  }
+
+  .particle-drift {
+    animation: particle-drift 8s linear infinite;
+  }
 }

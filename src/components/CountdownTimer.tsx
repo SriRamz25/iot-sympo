@@ -9,7 +9,7 @@ interface TimeLeft {
 
 const CountdownTimer = () => {
   // Set target date - change this to your symposium date
-  const targetDate = new Date("2024-12-31T23:59:59").getTime();
+  const targetDate = new Date("2025-09-18T09:00:00").getTime();
   
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,

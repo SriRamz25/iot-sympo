@@ -1,68 +1,132 @@
 import Navigation from "@/components/Navigation";
 import { Shield, Zap, Globe, Target, Code, Users } from "lucide-react";
 
+interface Feature {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
+
+interface Official {
+  name: string;
+  role: string;
+  image: string;
+}
+
 const About = () => {
-  const features = [
+  const features: Feature[] = [
     {
       icon: Shield,
       title: "Innovation Shield",
-      description: "Protecting and fostering innovative ideas for the future of technology."
+      description:
+        "Protecting and fostering innovative ideas for the future of technology.",
     },
     {
       icon: Zap,
       title: "Lightning Learning",
-      description: "Fast-paced, high-impact sessions designed for maximum knowledge transfer."
+      description:
+        "Fast-paced, high-impact sessions designed for maximum knowledge transfer.",
     },
     {
       icon: Globe,
       title: "Global Network",
-      description: "Connect with industry leaders and peers from around the world."
+      description:
+        "Connect with industry leaders and peers from around the world.",
     },
     {
       icon: Target,
       title: "Precision Focus",
-      description: "Targeted workshops and sessions tailored to your career goals."
+      description:
+        "Targeted workshops and sessions tailored to your career goals.",
     },
     {
       icon: Code,
       title: "Tech Mastery",
-      description: "Master cutting-edge technologies and development practices."
+      description:
+        "Master cutting-edge technologies and development practices.",
     },
     {
       icon: Users,
       title: "Team Assembly",
-      description: "Build lasting professional relationships and collaborative networks."
-    }
+      description:
+        "Build lasting professional relationships and collaborative networks.",
+    },
+  ];
+
+  const officials: Official[] = [
+    {
+      name: "Dr. Sundar",
+      role: "Principal",
+      image: "/officials/principal.jpg",
+    },
+    {
+      name: "Prof. Balaji",
+      role: "Head of Department",
+      image: "/officials/hod.jpg",
+    },
+    {
+      name: "Dr. Ram",
+      role: "Coordinator",
+      image: "/officials/coordinator.jpg",
+    },
   ];
 
   return (
     <div className="min-h-screen">
       <Navigation />
-      
+
       <div className="pt-24 pb-16">
         <div className="page-enter container mx-auto px-6">
+          {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
               ABOUT
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              The Marvel Symposium 2024 is not just an event—it's an epic gathering of minds, 
-              a convergence of innovation, and a launchpad for the next generation of tech heroes. 
-              Our mission is to empower students and professionals with the skills, knowledge, 
-              and network they need to become leaders in the digital age.
+              The Marvel Symposium 2024 is not just an event—it's an epic
+              gathering of minds, a convergence of innovation, and a launchpad
+              for the next generation of tech heroes. Our mission is to empower
+              students and professionals with the skills, knowledge, and network
+              they need to become leaders in the digital age.
             </p>
           </div>
 
           {/* Mission Section */}
           <div className="mb-20 text-center">
-            <h2 className="text-4xl font-bold mb-8 text-primary">Our Mission</h2>
+            <h2 className="text-4xl font-bold mb-8 text-primary">
+              Our Mission
+            </h2>
             <div className="bg-card/50 backdrop-blur-lg rounded-2xl p-8 border border-border/30 max-w-4xl mx-auto marvel-glow">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To create an immersive, transformative experience that bridges the gap between 
-                academic learning and industry expertise. We believe that every participant has 
-                the potential to be a hero in their field, and our symposium provides the tools, 
-                mentorship, and inspiration needed to unlock that potential.
+                To create an immersive, transformative experience that bridges
+                the gap between academic learning and industry expertise. We
+                believe that every participant has the potential to be a hero in
+                their field, and our symposium provides the tools, mentorship,
+                and inspiration needed to unlock that potential.
               </p>
+            </div>
+          </div>
+
+          {/* Officials Section */}
+          <div className="mb-20 text-center">
+            <h2 className="text-4xl font-bold mb-12 text-primary">
+              Our Officials
+            </h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+              {officials.map((person, index) => (
+                <div
+                  key={index}
+                  className="bg-card/50 backdrop-blur-lg rounded-2xl p-6 border border-border/30 marvel-glow hover:scale-105 transition-all duration-500"
+                >
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    className="w-40 h-40 object-cover rounded-full mx-auto mb-4 shadow-lg"
+                  />
+                  <h3 className="text-xl font-bold">{person.name}</h3>
+                  <p className="text-muted-foreground">{person.role}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -107,14 +171,14 @@ const About = () => {
 
           {/* Call to Action */}
           <div className="mt-20 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Join the Assembly?</h2>
+            <h2 className="text-3xl font-bold mb-6">
+              Ready to Join the Assembly?
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Don't just attend an event—become part of a movement. Join us in shaping 
-              the future of technology and innovation.
+              Don't just attend an event—become part of a movement. Join us in
+              shaping the future of technology and innovation.
             </p>
-            <button className="btn-hero">
-              Get Your Ticket Now
-            </button>
+            <button className="btn-hero">Get Your Ticket Now</button>
           </div>
         </div>
       </div>
