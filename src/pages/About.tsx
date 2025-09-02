@@ -1,184 +1,133 @@
 import Navigation from "@/components/Navigation";
-import { Shield, Zap, Globe, Target, Code, Users } from "lucide-react";
+import { useEffect, useState } from "react";
+import img1 from "@/assets/banner1.jpg";
+import img3 from "@/assets/banner 2.jpg";
+import img4 from "@/assets/banner 3.jpg";
+import img5 from "@/assets/banner 5.jpg";
 
-interface Feature {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}
-
-interface Official {
-  name: string;
-  role: string;
-  image: string;
-}
+// Head of the Department (standalone card)
+const hod = { name: "Dr M Kanthimathi", role: "Head of the Department" };
+// Symposium Coordinator (yellow box)
+const symposiumCoordinator = {
+  name: "Dr P Sathyaraj",
+  role: "Symposium Coordinator",
+};
+// Staff Coordinators (no photo)
+const staffCoordinators = [
+  { name: "Dr G Valarmathy" },
+  { name: "Ms M Piramu" },
+  { name: "Ms I Delphia" },
+  { name: "Ms M Ilamathi" },
+  { name: "Dr K Pranitha" },
+  { name: "Mr D Doss" },
+  { name: "Dr S Bairavel" },
+  { name: "Ms G Keerthana" },
+  { name: "Ms R A C Uma Maheshwari" },
+  { name: "Ms N T Velusudha" },
+  { name: "Mr Naveen Devaraj" },
+  { name: "Ms Rajalakshmi" },
+  { name: "Ms Sahara Fathima" },
+];
 
 const About = () => {
-  const features: Feature[] = [
-    {
-      icon: Shield,
-      title: "Innovation Shield",
-      description:
-        "Protecting and fostering innovative ideas for the future of technology.",
-    },
-    {
-      icon: Zap,
-      title: "Lightning Learning",
-      description:
-        "Fast-paced, high-impact sessions designed for maximum knowledge transfer.",
-    },
-    {
-      icon: Globe,
-      title: "Global Network",
-      description:
-        "Connect with industry leaders and peers from around the world.",
-    },
-    {
-      icon: Target,
-      title: "Precision Focus",
-      description:
-        "Targeted workshops and sessions tailored to your career goals.",
-    },
-    {
-      icon: Code,
-      title: "Tech Mastery",
-      description:
-        "Master cutting-edge technologies and development practices.",
-    },
-    {
-      icon: Users,
-      title: "Team Assembly",
-      description:
-        "Build lasting professional relationships and collaborative networks.",
-    },
-  ];
+  const images = [img1, img3, img4, img5];
+  const [bgIndex, setBgIndex] = useState(0);
 
-  const officials: Official[] = [
-    {
-      name: "Dr. Sundar",
-      role: "Principal",
-      image: "/officials/principal.jpg",
-    },
-    {
-      name: "Prof. Balaji",
-      role: "Head of Department",
-      image: "/officials/hod.jpg",
-    },
-    {
-      name: "Dr. Ram",
-      role: "Coordinator",
-      image: "/officials/coordinator.jpg",
-    },
-  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % images.length);
+    }, 3000); // Slowed down for a smoother feel
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black text-white">
       <Navigation />
+      <div className="relative flex items-center justify-start min-h-[500px] w-full overflow-hidden">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt="About background"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              index === bgIndex ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col items-start justify-center h-full">
+          <h1 className="font-heading text-5xl md:text-7xl mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            ABOUT US
+          </h1>
+          <p className="text-lg md:text-xl max-w-3xl mb-8 text-left text-gray-300 animate-fade-in-up animation-delay-300">
+            The IOTRIX Symposium 2025 is not just an event—it's an epic
+            gathering of minds, a convergence of innovation, and a launchpad for
+            the next generation of tech heroes. Our mission is to empower
+            students and professionals with the skills, knowledge, and network
+            they need to become leaders in the digital age.
+          </p>
+        </div>
+      </div>
 
-      <div className="pt-24 pb-16">
-        <div className="page-enter container mx-auto px-6">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-              ABOUT
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              The Marvel Symposium 2024 is not just an event—it's an epic
-              gathering of minds, a convergence of innovation, and a launchpad
-              for the next generation of tech heroes. Our mission is to empower
-              students and professionals with the skills, knowledge, and network
-              they need to become leaders in the digital age.
+      {/* Team Section */}
+      <div className="bg-black py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0 text-center animate-fade-in-up">
+            <h2 className="font-heading text-4xl md:text-5xl cosmic-glow">
+              Our Leadership
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+              Meet the visionary minds guiding the IOTRIX Symposium 2025.
             </p>
           </div>
 
-          {/* Mission Section */}
-          <div className="mb-20 text-center">
-            <h2 className="text-4xl font-bold mb-8 text-primary">
-              Our Mission
-            </h2>
-            <div className="bg-card/50 backdrop-blur-lg rounded-2xl p-8 border border-border/30 max-w-4xl mx-auto marvel-glow">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                To create an immersive, transformative experience that bridges
-                the gap between academic learning and industry expertise. We
-                believe that every participant has the potential to be a hero in
-                their field, and our symposium provides the tools, mentorship,
-                and inspiration needed to unlock that potential.
+          {/* HOD and Coordinator */}
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-12 animate-fade-in-up animation-delay-300">
+            {/* HOD Card */}
+            <div className="relative bg-gray-900/80 backdrop-blur-sm border border-red-500/50 rounded-2xl p-8 text-center shadow-lg shadow-red-500/20 transition-all duration-300 hover:scale-105 hover:shadow-red-500/40">
+              <h3 className="text-2xl font-bold text-white font-heading">
+                {hod.name}
+              </h3>
+              <p className="text-red-400 text-lg mt-2">{hod.role}</p>
+            </div>
+
+            {/* Coordinator Card */}
+            <div className="relative bg-gray-900/80 backdrop-blur-sm border border-yellow-400/50 rounded-2xl p-8 text-center shadow-lg shadow-yellow-400/20 transition-all duration-300 hover:scale-105 hover:shadow-yellow-400/40">
+              <h3 className="text-2xl font-bold text-white font-heading">
+                {symposiumCoordinator.name}
+              </h3>
+              <p className="text-yellow-300 text-lg mt-2">
+                {symposiumCoordinator.role}
               </p>
             </div>
           </div>
 
-          {/* Officials Section */}
-          <div className="mb-20 text-center">
-            <h2 className="text-4xl font-bold mb-12 text-primary">
-              Our Officials
-            </h2>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-              {officials.map((person, index) => (
-                <div
-                  key={index}
-                  className="bg-card/50 backdrop-blur-lg rounded-2xl p-6 border border-border/30 marvel-glow hover:scale-105 transition-all duration-500"
+          {/* Staff Coordinators */}
+          <div className="mt-24 animate-fade-in-up animation-delay-600">
+            <div className="mx-auto max-w-2xl lg:mx-0 text-center">
+              <h2 className="font-heading text-4xl md:text-5xl cosmic-glow">
+                Staff Coordinators
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                The dedicated team making this event possible.
+              </p>
+            </div>
+            <ul
+              role="list"
+              className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4 lg:gap-8"
+            >
+              {staffCoordinators.map((person, idx) => (
+                <li
+                  key={idx}
+                  className="rounded-2xl bg-gray-900/80 backdrop-blur-sm px-6 py-8 text-center border border-primary/50 transition-all duration-300 hover:bg-primary/20 hover:border-primary hover:scale-105 hover:shadow-lg hover:shadow-primary/20"
+                  style={{ animationDelay: `${idx * 100}ms` }}
                 >
-                  <img
-                    src={person.image}
-                    alt={person.name}
-                    className="w-40 h-40 object-cover rounded-full mx-auto mb-4 shadow-lg"
-                  />
-                  <h3 className="text-xl font-bold">{person.name}</h3>
-                  <p className="text-muted-foreground">{person.role}</p>
-                </div>
+                  <h3 className="text-lg font-semibold leading-7 tracking-tight text-white">
+                    {person.name}
+                  </h3>
+                </li>
               ))}
-            </div>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group bg-card/50 backdrop-blur-lg rounded-2xl p-6 border border-border/30 marvel-glow hover:scale-105 transition-all duration-500"
-              >
-                <div className="mb-4 p-3 rounded-xl bg-primary/10 w-fit">
-                  <feature.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Stats Section */}
-          <div className="bg-gradient-cosmic rounded-2xl p-12 text-center text-white">
-            <h2 className="text-4xl font-bold mb-8">Symposium Impact</h2>
-            <div className="grid md:grid-cols-4 gap-8">
-              <div>
-                <div className="text-5xl font-bold mb-2">500+</div>
-                <div className="text-lg opacity-90">Participants</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2">6</div>
-                <div className="text-lg opacity-90">Epic Events</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2">20+</div>
-                <div className="text-lg opacity-90">Industry Experts</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2">3</div>
-                <div className="text-lg opacity-90">Amazing Days</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="mt-20 text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Ready to Join the Assembly?
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Don't just attend an event—become part of a movement. Join us in
-              shaping the future of technology and innovation.
-            </p>
-            <button className="btn-hero">Get Your Ticket Now</button>
+            </ul>
           </div>
         </div>
       </div>
