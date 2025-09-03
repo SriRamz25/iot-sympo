@@ -5,9 +5,12 @@ import heroBg from "@/assets/BG_video.mp4";
 import brochurePdf from "@/assets/Merged posters.pdf";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import React, { useState } from "react";
+import IOTRIXImg from "@/assets/IOTRIX.jpeg"; // Import the image
 
 const Index = () => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false); // State for modal
 
   const handleDownloadBrochure = () => {
     // Create a temporary link element to trigger download
@@ -23,6 +26,30 @@ const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <Navigation />
+
+      {/* Modal for IOTRIX image */}
+           {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
+          <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+            <img
+              src={IOTRIXImg}
+              alt="IOTRIX"
+              className="w-full h-full object-contain"
+              style={{ maxWidth: "100vw", maxHeight: "100vh" }}
+            />
+            <button
+              className="absolute top-6 right-8 text-white hover:text-red-500 text-4xl font-bold bg-black/40 rounded-full px-4 py-2"
+              onClick={() => setShowModal(false)}
+              aria-label="Close"
+              style={{ zIndex: 10 }}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+)}
+            
+        
 
       {/* Animated Background Particles */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -64,14 +91,19 @@ const Index = () => {
             {/* Main Title Section */}
             <div className="mb-16 font-heading flex flex-col items-center gap-6">
               <div className="relative animate-in slide-in-from-top-10 duration-700">
-                <div className="px-8 py-3 bg-white text-red-700 inline-block shadow-hero">
+                <button
+                  className="px-8 py-3 bg-white text-red-700 inline-block shadow-hero focus:outline-none"
+                  style={{ borderRadius: "0.5rem" }}
+                  onClick={() => setShowModal(true)}
+                  aria-label="Show IOTRIX Image"
+                >
                   <span
                     className="text-7xl md:text-8xl xl:text-9xl leading-none"
                     style={{ fontWeight: 900, letterSpacing: "2px" }}
                   >
                     IOTRIX
                   </span>
-                </div>
+                </button>
                 <div className="absolute -inset-2 bg-gradient-to-r from-red-500/20 via-white/0 to-red-500/20 blur-2xl -z-10 rounded"></div>
               </div>
               <h2 className="font-heading text-5xl md:text-6xl xl:text-7xl font-extrabold text-white tracking-wider leading-tight animate-in fade-in-0 duration-1000 delay-150">

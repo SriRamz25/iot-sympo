@@ -1,3 +1,4 @@
+import IoTrixPoster from "@/assets/IoTrix_Poster.jpeg";
 import { Link } from "react-router-dom";
 import {
   Phone,
@@ -119,6 +120,13 @@ const Footer = () => {
           </p>
         </div>
       </div>
+          {/* Footer Image in Bottom Right */}
+      <img
+        src={IoTrixPoster}
+        alt="IoTrix Poster"
+        className="hidden md:block fixed bottom-4 right-4 w-32 h-auto rounded-lg shadow-lg z-50"
+        style={{ pointerEvents: 'none' }}
+      />
     </footer>
   );
 };
