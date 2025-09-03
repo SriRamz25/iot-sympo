@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import EventCarousel from "@/components/EventCarousel";
-import brochurePdf from "@/assets/Merged posters.pdf";
+import brochurePdf from "@/IOTRIIX'25.pdf";
 
 const Events = () => {
   return (
