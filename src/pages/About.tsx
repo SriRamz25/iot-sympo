@@ -39,7 +39,7 @@ const eventOrganizers = [
 // Students for Poster Making
 const posterMakers = [
   { name: "Yathesh R(III year)" },
-  { name: "Pragadeeswaran S (II year)" },
+  { name: "Pragadeeswaran H (II year)" },
   { name: "Sai Lingeshwaran K (II year" },
   { name: "Sanchidha M (II year)" },
   { name: "Madhavan S (II year)" },
