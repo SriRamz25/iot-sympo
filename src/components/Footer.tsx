@@ -19,9 +19,6 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Contact Us */}
           <div className="flex flex-col space-y-4">
-            <h3 className="text-xl font-heading font-bold text-white shimmer-text">
-              Contact Us
-            </h3>
             <div className="flex items-center space-x-3">
               <Mail className="h-5 w-5 text-blue-400" />
               <a
@@ -31,10 +28,7 @@ const Footer = () => {
                 iotrix.sairam@gmail.com
               </a>
             </div>
-            <div className="flex items-center space-x-3">
-              <Phone className="h-5 w-5 text-blue-400" />
-              <span>+91 98765 43210</span>
-            </div>
+            
             <div className="flex items-start space-x-3">
               <MapPin className="h-5 w-5 text-blue-400 mt-1" />
               <span>Sri Sairam Engineering College, Chennai, India</span>
@@ -81,38 +75,7 @@ const Footer = () => {
           </div>
 
           {/* Follow Us On */}
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-xl font-heading font-bold text-white shimmer-text">
-              Follow Us On
-            </h3>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-transform duration-300 transform hover:scale-125"
-              >
-                <Instagram />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-transform duration-300 transform hover:scale-125"
-              >
-                <Facebook />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-transform duration-300 transform hover:scale-125"
-              >
-                <Twitter />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-transform duration-300 transform hover:scale-125"
-              >
-                <Linkedin />
-              </a>
-            </div>
-          </div>
-        </div>
+         
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
           <p>
             &copy; {new Date().getFullYear()} IOTRIX Symposium. All Rights
