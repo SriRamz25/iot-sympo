@@ -1,4 +1,4 @@
-import IoTrixPoster from "@/assets/IoTrix_Poster.jpeg";
+import IoTrixPoster from "@/assets/IoTrix_Poster__1_-removebg-preview (1).png";
 import { Link } from "react-router-dom";
 import {
   Phone,

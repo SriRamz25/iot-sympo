@@ -6,7 +6,7 @@ import brochurePdf from "@/assets/Merged posters.pdf";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import React, { useState } from "react";
-import IOTRIXImg from "@/assets/IOTRIX.jpeg"; // Import the image
+import IOTRIXImg from "@/assets/IoTrix_Poster.jpeg"; // Import the image
 
 const Index = () => {
   const navigate = useNavigate();
