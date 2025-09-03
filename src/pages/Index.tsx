@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import CountdownTimer from "@/components/CountdownTimer";
 import { Calendar, MapPin, Users, Download, ArrowRight } from "lucide-react";
 import heroBg from "@/assets/BG_video.mp4";
-import brochurePdf from "@/assets/Merged posters.pdf";
+import brochurePdf from "@/IOTRIIX'25.pdf";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import React, { useState } from "react";
