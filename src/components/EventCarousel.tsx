@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import RegistrationModal from "./RegistrationModal";
 
-
+// Images
 import doctorStrangeImg from "@/assets/Doctor-Strange.jpg";
 import taskMasterImg from "@/assets/Task-Master.jpg";
 import ironManImg from "@/assets/iron-man.jpg";
@@ -151,16 +151,16 @@ const EventCarousel = () => {
   };
 
   const getCardPosition = (index: number) => {
-    if (index === currentIndex) return "center"; // active
-    if (index === (currentIndex - 1 + events.length) % events.length)
-      return "left"; // previous
-    if (index === (currentIndex + 1) % events.length) return "right"; // next
+    if (index === currentIndex) return "center";
+    if (index === (currentIndex - 1 + events.length) % events.length) return "left";
+    if (index === (currentIndex + 1) % events.length) return "right";
     return "hidden";
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto">
-      <div className="flex items-center justify-center min-h-[600px] relative">
+    <div className="relative w-full max-w-7xl mx-auto px-4">
+      {/* Desktop Carousel */}
+      <div className="hidden sm:flex items-center justify-center min-h-[600px] relative">
         <button
           onClick={prevSlide}
           className="absolute left-4 z-30 p-3 rounded-full bg-card/80 backdrop-blur-lg border border-border/50 hover:bg-primary/20 transition-all duration-300 shadow-glow"
@@ -173,23 +173,22 @@ const EventCarousel = () => {
             <div
               key={event.id}
               className={cn(
-                "absolute transition-all duration-500 ease-smooth w-[500px]",
+                "absolute sm:w-[500px] w-[90vw] max-w-full transition-all duration-500 ease-smooth",
                 getCardPosition(index) === "center" &&
                   "z-20 scale-100 opacity-100 translate-x-0",
                 getCardPosition(index) === "left" &&
                   "z-10 scale-90 opacity-70 -translate-x-[260px] blur-sm",
                 getCardPosition(index) === "right" &&
                   "z-10 scale-90 opacity-70 translate-x-[260px] blur-sm",
-
                 getCardPosition(index) === "hidden" && "hidden"
               )}
             >
-              <div className="relative h-96 bg-gradient-to-b from-card to-card/80 p-6 flex flex-col rounded-xl">
-                <div className="relative h-48 mb-4 overflow-hidden rounded-xl">
+              <div className="relative sm:h-96 bg-gradient-to-b from-card to-card/80 p-6 flex flex-col rounded-xl">
+                <div className="relative h-48 sm:h-56 mb-4 overflow-hidden rounded-xl">
                   <img
                     src={event.heroImage}
                     alt="event"
-                    className="event-card-hero w-full h-full object-cover"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white font-bold text-lg">
@@ -200,12 +199,11 @@ const EventCarousel = () => {
                 <h3 className="text-xl font-bold mb-2 text-foreground">
                   {event.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {event.description}
                 </p>
-
                 <button
-                  className="mt-auto btn-secondary w-full hover:scale-105 transition-all duration-300 py-3"
+                  className="btn-secondary w-full py-3"
                   onClick={() => openModal(event)}
                 >
                   Register Now
@@ -223,13 +221,49 @@ const EventCarousel = () => {
         </button>
       </div>
 
-      <div className="flex justify-center gap-2 mt-8">
+      {/* Mobile Stack View */}
+      <div className="sm:hidden flex flex-col gap-6 py-8">
+        {events.map((event) => (
+          <div key={event.id} className="w-full">
+            <div className="bg-gradient-to-b from-card to-card/80 p-4 rounded-xl">
+              <div className="relative h-48 mb-4 overflow-hidden rounded-xl">
+                <img
+                  src={event.heroImage}
+                  alt="event"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white font-bold text-lg">
+                  {event.hero}
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold mb-2 text-foreground">
+                {event.title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                {event.description}
+              </p>
+              <button
+                className="btn-secondary w-full py-3"
+                onClick={() => openModal(event)}
+              >
+                Register Now
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Pagination Dots */}
+      <div className="flex justify-center gap-2 mt-8 sm:mt-12">
         {events.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={cn(
-              "w-3 h-3 rounded-full transition-all duration-300",
+              "transition-all duration-300",
+              "w-2 h-2 sm:w-3 sm:h-3 rounded-full",
               index === currentIndex
                 ? "bg-primary scale-125"
                 : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
@@ -238,11 +272,10 @@ const EventCarousel = () => {
         ))}
       </div>
 
-      {/* Registration Modal */}
       <RegistrationModal
-        event={selectedEvent}
         isOpen={isModalOpen}
         onClose={closeModal}
+        event={selectedEvent}
       />
     </div>
   );
